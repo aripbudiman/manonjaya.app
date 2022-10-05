@@ -9,6 +9,7 @@ use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\WakalahInputController;
 use App\Http\Controllers\KolektabilitasController;
+use App\Http\Controllers\MurabahahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,7 @@ Route::resource('petugas',PetugasController::class);
 Route::resource('stokItems',StokItemsController::class);
 Route::resource('wakalahInput',WakalahInputController::class);
 Route::resource('kol',KolektabilitasController::class);
+Route::resource('mba',MurabahahController::class);
 Route::get('export',[KolektabilitasController::class,'export'])->name('export');
 Route::post('import',[KolektabilitasController::class,'import'])->name('import');
 
