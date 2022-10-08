@@ -26,6 +26,8 @@ Route::get('/', function () {
     return view('welcome',['title'=>'Home']);
 });
 
+
+
 Route::resource('items',ItemsController::class);
 Route::resource('barangMasuk',BarangMasukController::class);
 Route::resource('barangKeluar',BarangKeluarController::class);
@@ -37,6 +39,9 @@ Route::resource('kol',KolektabilitasController::class);
 Route::resource('mba',MurabahahController::class);
 Route::get('export',[KolektabilitasController::class,'export'])->name('export');
 Route::post('import',[KolektabilitasController::class,'import'])->name('import');
+
+
+Route::get('wakalah/{id}/status/{status}',[WakalahInputController::class,'changeStatus'])->name('wakalah.changeStatus');
 
 Route::post('filterPar',[KolektabilitasController::class,'filterPar'])->name('filterPar.post');
 // Route::resource('item',ItemsController::class);

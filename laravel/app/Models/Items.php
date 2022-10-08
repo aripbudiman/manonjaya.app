@@ -13,7 +13,7 @@ class Items extends Model
 
 
     protected $fillable = [
-        'name','satuan'
+        'name','satuan','stok'
     ];
 
     public $timestamps = false;

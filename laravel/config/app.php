@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        NtimYeboah\LaravelDatabaseTrigger\TriggerServiceProvider::class,
         /*
          * Application Service Providers...
          */

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "73cb82ea0434ddf78a2dfeba8f3d99e5",
+    "content-hash": "c76a72d292a61ea05918587fd0a1e8e9",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2450,6 +2450,65 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.15.1"
             },
             "time": "2022-09-04T07:30:47+00:00"
+        },
+        {
+            "name": "ntimyeboah/laravel-database-trigger",
+            "version": "v5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/NtimYeboah/laravel-database-trigger.git",
+                "reference": "11dfea36946cbfb87a2fa4458aeb4b5fe34e8b06"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/NtimYeboah/laravel-database-trigger/zipball/11dfea36946cbfb87a2fa4458aeb4b5fe34e8b06",
+                "reference": "11dfea36946cbfb87a2fa4458aeb4b5fe34e8b06",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^8.75",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.4.4",
+                "phpunit/phpunit": "^9.5.10"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NtimYeboah\\LaravelDatabaseTrigger\\TriggerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NtimYeboah\\LaravelDatabaseTrigger\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ntim Yeboah",
+                    "email": "ntimobedyeboah@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A package to add database trigger to laravel migrations",
+            "keywords": [
+                "NtimYeboah",
+                "database",
+                "laravel-database-trigger",
+                "trigger"
+            ],
+            "support": {
+                "issues": "https://github.com/NtimYeboah/laravel-database-trigger/issues",
+                "source": "https://github.com/NtimYeboah/laravel-database-trigger/tree/v5.0.0"
+            },
+            "time": "2022-02-08T07:33:39+00:00"
         },
         {
             "name": "opis/closure",

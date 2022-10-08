@@ -6,6 +6,7 @@ use BarangMasuk;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Models\Items;
 
 class StokItemsController extends Controller
 {
@@ -16,29 +17,8 @@ class StokItemsController extends Controller
      */
     public function index()
     {
-        $barangMasuk = DB::select('SELECT item_id,SUM(qty) as bm_qty FROM barang_masuk GROUP BY item_id ORDER BY item_id ASC;');
-        $transaksi = DB::select('SELECT item_id,SUM(qty) as t_qty FROM transaksi GROUP BY item_id ORDER BY item_id ASC;');
-        // $stok =[];
-        // $items =DB::select('SELECT * FROM items');
-
-        // for ($i=0; $i < count($items); $i++) { 
-        //     $stok[]=['nama'=>$items[$i]->name,'satuan'=>$items[$i]->satuan,'stok'=>[]];
-        // }
-        // for ($i=0; $i < count($items); $i++) { 
-        //     for ($x=0; $x < count($barangMasuk); $x++) { 
-        //         if($items[$i]->id == $barangMasuk[$x]->item_id){
-        //             $stok[$i]['stok'][]=['bm'=>$barangMasuk[$x]->bm_qty];
-        //         }else{
-        //             $stok[]['stok'][]=['bm'=>0];
-        //         }
-                
-        //     }
-        // }
-
-
-
-        return $barangMasuk;
-        // return view('stokitems.index',['title'=>'Stok Items(ATK)'],compact('stok'));
+        $stok =Items::all();
+        return view('stokitems.index',['title'=>'Stok Items(ATK)'],compact('stok'));
     }
 
     /**

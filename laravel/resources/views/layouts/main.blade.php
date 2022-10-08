@@ -59,6 +59,7 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     {{-- <script src="{{ url('') }}/public/dist/js/datatables-simple-demo.js"></script> --}}
     <script src="{{ url('') }}/public/script.js"></script>
+    <script src="{{ url('') }}/public/autoNumeric.js"></script>
 
     <script>
         $(document).ready(function () {
