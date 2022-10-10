@@ -1,18 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MajelisController;
 use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\MurabahahController;
 use App\Http\Controllers\StokItemsController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\WakalahInputController;
 use App\Http\Controllers\KolektabilitasController;
-use App\Http\Controllers\MurabahahController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,7 +44,7 @@ Route::resource('kol',KolektabilitasController::class)->middleware('auth');
 Route::resource('mba',MurabahahController::class)->middleware('auth');
 Route::get('export',[KolektabilitasController::class,'export'])->name('export')->middleware('auth');
 Route::post('import',[KolektabilitasController::class,'import'])->name('import')->middleware('auth');
-
+Route::resource('majelis',MajelisController::class)->middleware('auth');
 
 Route::get('wakalah/{id}/status/{status}',[WakalahInputController::class,'changeStatus'])->name('wakalah.changeStatus')->middleware('auth');
 
