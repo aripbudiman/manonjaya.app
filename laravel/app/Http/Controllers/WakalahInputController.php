@@ -20,7 +20,7 @@ class WakalahInputController extends Controller
     {
         $petugas = Petugas::all();
         $majelis = DB::select('SELECT nama FROM majelis');
-        $wakalah = Wakalah::all();
+        $wakalah = DB::select("SELECT * FROM wakalah WHERE status != 'Approve'");
 
         return view('wakalah.inputwakalah.index',['title'=>'Input Wakalah'],compact('petugas','majelis','wakalah'));
     }
@@ -114,5 +114,11 @@ class WakalahInputController extends Controller
         $wakalah->save();
 
         return redirect()->route('wakalahInput.index');
+    }
+
+    public function saldo(){
+        $saldo = DB::select("SELECT SUM(nominal) AS saldo, petugas FROM wakalah WHERE status='OnProses' group by petugas");
+
+        return view('wakalah.saldo.index',['title'=>'Saldo Wakalah'],compact('saldo'));
     }
 }

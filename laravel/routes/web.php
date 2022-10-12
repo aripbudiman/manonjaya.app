@@ -47,6 +47,6 @@ Route::post('import',[KolektabilitasController::class,'import'])->name('import')
 Route::resource('majelis',MajelisController::class)->middleware('auth');
 
 Route::get('wakalah/{id}/status/{status}',[WakalahInputController::class,'changeStatus'])->name('wakalah.changeStatus')->middleware('auth');
-
+Route::get('saldo',[WakalahInputController::class,'saldo'])->name('wakalah.saldo')->middleware('auth');
 Route::post('filterPar',[KolektabilitasController::class,'filterPar'])->name('filterPar.post')->middleware('auth');
 // Route::resource('item',ItemsController::class);

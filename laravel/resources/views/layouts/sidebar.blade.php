@@ -48,7 +48,7 @@
                     data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="{{ route('wakalahInput.index') }}">Input Wakalah</a>
-                        <a class="nav-link" href="3">Verif Pengembalian Wakalah</a>
+                        <a class="nav-link" href="{{ route('wakalah.saldo') }}">Saldo Wakalah</a>
                     </nav>
                 </div>
 
