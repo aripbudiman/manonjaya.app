@@ -86,7 +86,7 @@
                     <td>{{ $item->petugas }}</td>
                     <td>{{ $item->nama_anggota }}</td>
                     <td>{{ $item->majelis }}</td>
-                    <td>{{ $item->nominal }}</td>
+                    <td>{{ Str::rp($item->nominal) }}</td>
                     <td>{{ $item->trx_wkl }}</td>
                     <td>{{ $item->trx_mba }}</td>
                     <td

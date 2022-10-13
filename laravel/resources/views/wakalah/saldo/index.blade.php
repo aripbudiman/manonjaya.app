@@ -19,7 +19,7 @@
                 <tr>
                     <th scope="row">{{ $no++ }}</th>
                     <td>{{ $data->petugas }}</td>
-                    <td>{{ $data->saldo }}</td>
+                    <td>{{ Str::rp($data->saldo) }}</td>
                 </tr>
                 @php
                 $saldoAkhir +=$data->saldo;
@@ -29,7 +29,7 @@
             <tfoot>
                 <tr>
                     <th colspan="2">Total Saldo Wakalah</th>
-                    <td>{{ $saldoAkhir; }}</td>
+                    <td>{{ Str::rp($saldoAkhir) }}</td>
                 </tr>
             </tfoot>
         </table>

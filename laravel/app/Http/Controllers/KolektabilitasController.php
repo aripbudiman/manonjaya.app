@@ -19,20 +19,13 @@ class KolektabilitasController extends Controller
      */
     public function index(Request $request)
     {
-        $kolektabilitas = new Kolektabilitas;
-        $data =$kolektabilitas->historyKolektabilitas();
-        // return $data;
-        // return $report;
-        // return $report[0]->par;
-        // return $data;
-        // $majelis =DB::table('kolektabilitas')
-        // ->select('majelis')
-        // ->groupBy('majelis')
-        // ->get();
+        $par = new Kolektabilitas();
+        $data = $par->historyKolektabilitas();
+        $pribadi = DB::select('SELECT nama, no_rekening FROM kolektabilitas GROUP BY no_rekening,nama');
 
-        return $data;
 
-        return view('par.index',['title'=>'Portfolio At Risk'],compact('data','majelis'));
+        return $pribadi;
+        return view('par.index',['title'=>'Portfolio At Risk']);
     }
 
 

@@ -19,6 +19,7 @@ class TransaksiController extends Controller
     public function index()
     {
         $items = Transaksi::with('petugas','items')->paginate(10);
+
         return view('transaksi.index',['title'=>'Transaksi'],compact('items'));
     }
 

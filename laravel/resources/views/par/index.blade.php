@@ -13,67 +13,37 @@
             Import Excel
         </a>
     </div>
-    @php
-    $riwayat = $data[0]["riwayat"];
-    @endphp
     <div class="col-12 mb-3">
-        <form action="{{ route('filterPar.post') }}" method="post">
-            <div class="row">
-                @csrf
-                <div class="mb-2 col-12 col-lg-2">
-                    <label for="majelis">Majelis</label>
-                    <select name="majelis" id="majelis" class="form-select">
-                        @foreach ($majelis as $item)
-                        <option value="{{ $item->majelis }}">{{ $item->majelis }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="mb-2 col-12 col-lg-2">
-                    <label for="tanggal">Tanggal</label>
-                    <input type="date" name="dari" id="dari" class="form-control">
-                </div>
-                <div class="mb-2 col-12 col-lg-2">
-                    <label for="tanggal">Tanggal</label>
-                    <input type="date" name="sampai" id="sampai" class="form-control">
-                </div>
-                <div class="mb-2 col-12 col-lg-2 position-relative">
-                    <button type="submit" class="btn btn-success rounded-0 position-absolute bottom-0">Filter</button>
-                </div>
+        {{-- <form action="{{ route('filterPar.post') }}" method="post">
+        <div class="row">
+            @csrf
+            <div class="mb-2 col-12 col-lg-2">
+                <label for="majelis">Majelis</label>
+                <select name="majelis" id="majelis" class="form-select">
+                    @foreach ($majelis as $item)
+                    <option value="{{ $item->majelis }}">{{ $item->majelis }}</option>
+                    @endforeach
+                </select>
             </div>
-        </form>
+            <div class="mb-2 col-12 col-lg-2">
+                <label for="tanggal">Tanggal</label>
+                <input type="date" name="dari" id="dari" class="form-control">
+            </div>
+            <div class="mb-2 col-12 col-lg-2">
+                <label for="tanggal">Tanggal</label>
+                <input type="date" name="sampai" id="sampai" class="form-control">
+            </div>
+            <div class="mb-2 col-12 col-lg-2 position-relative">
+                <button type="submit" class="btn btn-success rounded-0 position-absolute bottom-0">Filter</button>
+            </div>
+        </div>
+        </form> --}}
     </div>
     <div class="col">
         <table class="table table-bordered border-dark">
             <thead>
-                <tr class="text-center">
-                    <th scope="col">No</th>
-                    <th scope="col">Nama</th>
-                    @foreach ($riwayat as $tgl)
-                    <th scope="col">{{ date('d-M',strtotime($tgl["tanggal"])) }}</th>
-                    @endforeach
-                </tr>
             </thead>
             <tbody>
-                @php
-                $no=1;
-                @endphp
-                @foreach ($data as $item)
-                <tr>
-                    <th scope="row" class="text-center">{{ $no++ }}</th>
-                    <td>{{ $item["nama"] }}</td>
-                    <td class="text-center">
-                        {{ empty($item["riwayat"][0]["par"]) ? "": $item["riwayat"][0]["par"].' ='.$item["riwayat"][0]["tgk_hari"] }}
-                    </td>
-                    <td class="text-center">{{ empty($item["riwayat"][1]["par"]) ? "": $item["riwayat"][1]["par"] }}
-                    </td>
-                    <td class="text-center">{{ empty($item["riwayat"][2]["par"]) ? "": $item["riwayat"][2]["par"] }}
-                    </td>
-                    <td class="text-center">{{ empty($item["riwayat"][3]["par"]) ? "": $item["riwayat"][3]["par"] }}
-                    </td>
-                    {{-- <td>{{ $item["riwayat"][2]["par"] }}</td> --}}
-                    {{-- <td>{{ empty($item["riwayat"][3]["par"]) ? "": $item["riwayat"][3]["par"] }}</td> --}}
-                </tr>
-                @endforeach
             </tbody>
         </table>
     </div>
