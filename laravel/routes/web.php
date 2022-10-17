@@ -45,6 +45,7 @@ Route::resource('mba',MurabahahController::class)->middleware('auth');
 Route::get('export',[KolektabilitasController::class,'export'])->name('export')->middleware('auth');
 Route::post('import',[KolektabilitasController::class,'import'])->name('import')->middleware('auth');
 Route::resource('majelis',MajelisController::class)->middleware('auth');
+Route::get('petugas/{id}/status/{status}',[PetugasController::class,'changeStatus'])->name('petugas.changeStatus')->middleware('auth');
 
 Route::get('wakalah/{id}/status/{status}',[WakalahInputController::class,'changeStatus'])->name('wakalah.changeStatus')->middleware('auth');
 Route::get('saldo',[WakalahInputController::class,'saldo'])->name('wakalah.saldo')->middleware('auth');

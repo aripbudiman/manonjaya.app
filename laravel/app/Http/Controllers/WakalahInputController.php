@@ -18,7 +18,7 @@ class WakalahInputController extends Controller
      */
     public function index()
     {
-        $petugas = Petugas::all();
+        $petugas = DB::select("SELECT * FROM petugas WHERE role='tpl'");
         $majelis = DB::select('SELECT nama FROM majelis');
         $wakalah = DB::select("SELECT * FROM wakalah WHERE status != 'Approve'");
 

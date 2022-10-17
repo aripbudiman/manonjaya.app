@@ -28,6 +28,11 @@
             </div>
         </form>
     </div>
+    <div class="col-6">
+        <img src="{{ asset('public/MBA/CMMC/1@05-OctOct-2022@arip budiman@CMMC@ro.jpg') }}" width="200"
+            class="rounded float-start" alt="...">
+        <img src="..." class="rounded float-end" alt="...">
+    </div>
 </div>
 <script>
     $(document).ready(function () {

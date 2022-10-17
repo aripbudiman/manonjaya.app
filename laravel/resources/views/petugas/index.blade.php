@@ -20,8 +20,10 @@
                     <img src="{{ url('') }}/public/default.png" width="200">
                 </div>
                 <div class="text-center">
-                    <a href="#" class="card-link">Aktif</a>
-                    <a href="#" class="card-link">Non Aktif</a>
+                    <a href="{{ route('petugas.changeStatus',['id'=>$item->id,'status'=>'aktif']) }}"
+                        class="card-link">Aktif</a>
+                    <a href="{{ route('petugas.changeStatus',['id'=>$item->id,'status'=>'non aktif']) }}"
+                        class="card-link">Non Aktif</a>
                 </div>
                 <div class="mt-3 text-center">
                     <span class="badge rounded-pill text-bg-primary">{{ $item->status }}</span>

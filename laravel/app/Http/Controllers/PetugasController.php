@@ -85,4 +85,11 @@ class PetugasController extends Controller
     {
         //
     }
+
+    public function changeStatus(Request $request, $id, $status){
+        $petugas = Petugas::findOrFail($id);
+        $petugas->status = $status;
+        $petugas->save();
+        return redirect()->route('petugas.index');
+    }
 }
