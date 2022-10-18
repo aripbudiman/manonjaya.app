@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Murabahah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -14,7 +15,8 @@ class MurabahahController extends Controller
      */
     public function index()
     {
-        return view('murabahah.index',['title'=>'Murabahah']);
+        $data = Murabahah::all();
+        return view('murabahah.index',['title'=>'Murabahah'],compact('data'));
     }
 
     /**
@@ -45,7 +47,13 @@ class MurabahahController extends Controller
         $no=1;
         foreach ($data as $image) {
                 $nama = $image->getClientOriginalName();
-                $image->move($tujuan,$no++.$namaFoto.substr($nama,-6));
+                $image->move($tujuan,$namaFoto.substr($nama,-6));
+                $tj = '/'."MBA/".$majelis.'/'.$namaFoto.substr($nama,-6);
+                Murabahah::create([
+                    'deskripsi'=>$nama,
+                    'tanggal'=>date('Y-m-d'),
+                    'path'=>$tj 
+                ]);
         }
             return redirect()->route('mba.index');
     }

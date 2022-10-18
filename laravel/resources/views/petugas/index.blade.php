@@ -21,12 +21,13 @@
                 </div>
                 <div class="text-center">
                     <a href="{{ route('petugas.changeStatus',['id'=>$item->id,'status'=>'aktif']) }}"
-                        class="card-link">Aktif</a>
+                        class="card-link btn btn-warning btn-sm">Aktif</a>
                     <a href="{{ route('petugas.changeStatus',['id'=>$item->id,'status'=>'non aktif']) }}"
-                        class="card-link">Non Aktif</a>
+                        class="card-link btn btn-sm btn-danger">Non Aktif</a>
                 </div>
                 <div class="mt-3 text-center">
-                    <span class="badge rounded-pill text-bg-primary">{{ $item->status }}</span>
+                    <span
+                        class="badge rounded-pill text-bg-{{$item->status=='aktif' ? 'primary' : 'danger'}}">{{ $item->status }}</span>
                 </div>
             </div>
         </div>

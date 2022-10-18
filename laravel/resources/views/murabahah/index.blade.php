@@ -28,11 +28,14 @@
             </div>
         </form>
     </div>
-    <div class="col-6">
-        <img src="{{ asset('public/MBA/CMMC/1@05-OctOct-2022@arip budiman@CMMC@ro.jpg') }}" width="200"
-            class="rounded float-start" alt="...">
-        <img src="..." class="rounded float-end" alt="...">
+</div>
+<div class="row bg-light shadow-lg justify-content-center">
+    @foreach ($data as $item)
+    <div class="col-lg-3 col-12 p-2" style="box-sizing: border-box">
+        <img src="{{ asset($item->path) }}" class="img-thumbnail" alt="{{ $item->deskripsi }}">
+        <a href="" class="btn btn-warning btn-sm rounded-0"><i class="fas fa-print"></i> Print</a>
     </div>
+    @endforeach
 </div>
 <script>
     $(document).ready(function () {

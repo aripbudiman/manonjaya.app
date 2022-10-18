@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Murabahah extends Model
 {
     use HasFactory;
+    protected $table = 'murabahah';
+
+
+    protected $fillable = [
+        'deskripsi','tanggal','path'
+    ];
+
+    public $timestamps = false;
 }
