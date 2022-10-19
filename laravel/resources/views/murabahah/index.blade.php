@@ -33,7 +33,9 @@
     @foreach ($data as $item)
     <div class="col-lg-3 col-12 p-2" style="box-sizing: border-box">
         <img src="{{ asset($item->path) }}" class="img-thumbnail" alt="{{ $item->deskripsi }}">
-        <a href="" class="btn btn-warning btn-sm rounded-0"><i class="fas fa-print"></i> Print</a>
+        <a href="{{ route('print_pdf',['id'=>$item->id]) }}" target="_blank" class="btn btn-warning btn-sm rounded-0"><i
+                class="fas fa-print"></i>
+            Print</a>
     </div>
     @endforeach
 </div>

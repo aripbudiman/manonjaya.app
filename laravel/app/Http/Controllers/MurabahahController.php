@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use App\Models\Murabahah;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class MurabahahController extends Controller
@@ -48,7 +52,7 @@ class MurabahahController extends Controller
         foreach ($data as $image) {
                 $nama = $image->getClientOriginalName();
                 $image->move($tujuan,$namaFoto.substr($nama,-6));
-                $tj = '/'."MBA/".$majelis.'/'.$namaFoto.substr($nama,-6);
+                $tj = 'public/'."MBA/".$majelis.'/'.$namaFoto.substr($nama,-6);
                 Murabahah::create([
                     'deskripsi'=>$nama,
                     'tanggal'=>date('Y-m-d'),
@@ -101,5 +105,18 @@ class MurabahahController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function print_pdf(Request $request, $id){
+        $mba = DB::select("SELECT * FROM murabahah WHERE id=$id");
+        $options = new Options();
+        $dompdf = new Dompdf($options);
+        $html = view('murabahah.pdf',compact('mba'));
+        $dompdf->loadHtml($html);
+        //tambahkan baris ini supaya gambar bisa tampil
+        $dompdf->set_option('isRemoteEnabled', TRUE);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+        $dompdf->stream('pdf',array("Attachment" => false));
     }
 }

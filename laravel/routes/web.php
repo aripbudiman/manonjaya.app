@@ -51,3 +51,5 @@ Route::get('wakalah/{id}/status/{status}',[WakalahInputController::class,'change
 Route::get('saldo',[WakalahInputController::class,'saldo'])->name('wakalah.saldo')->middleware('auth');
 Route::post('filterPar',[KolektabilitasController::class,'filterPar'])->name('filterPar.post')->middleware('auth');
 // Route::resource('item',ItemsController::class);
+
+Route::get('print_pdf/{id}',[MurabahahController::class,'print_pdf'])->name('print_pdf');
