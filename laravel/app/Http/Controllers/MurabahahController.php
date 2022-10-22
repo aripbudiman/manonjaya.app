@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cetakan;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use App\Models\Murabahah;
@@ -20,7 +21,20 @@ class MurabahahController extends Controller
     public function index()
     {
         $data = Murabahah::all();
-        return view('murabahah.index',['title'=>'Murabahah'],compact('data'));
+        $ambil = Cetakan::all();
+        $result = DB::select('SELECT nama,kode FROM cetakan GROUP BY kode,nama');
+        $cetakan=[];
+        foreach ($result as $key => $value) {
+            $cetakan[]=['nama'=>$value->nama,'kode'=>$value->kode,'path'=>[]];
+        }
+        for ($i=0; $i < count($ambil); $i++) { 
+            for ($x=0; $x < count($cetakan); $x++) { 
+                if($cetakan[$x]['kode'] == $ambil[$i]['kode']){
+                    $cetakan[$x]['path'][]=$ambil[$i]['path'];
+                }
+            }
+        }
+        return view('murabahah.index',['title'=>'Murabahah'],compact('data','cetakan'));
     }
 
     /**
@@ -102,13 +116,14 @@ class MurabahahController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Cetakan $cetakan)
     {
-        //
+        DB::delete("DELETE FROM cetakan WHERE kode = '$id'");
+        return redirect()->route('mba.index')->with('success','Data berhjasil dihapus');
     }
 
     public function print_pdf(Request $request, $id){
-        $mba = DB::select("SELECT * FROM murabahah WHERE id=$id");
+        $mba = DB::select("SELECT * FROM cetakan WHERE kode='$id'");
         $options = new Options();
         $dompdf = new Dompdf($options);
         $html = view('murabahah.pdf',compact('mba'));

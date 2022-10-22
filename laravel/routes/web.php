@@ -11,6 +11,7 @@ use App\Http\Controllers\StokItemsController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\BarangKeluarController;
+use App\Http\Controllers\CetakanController;
 use App\Http\Controllers\WakalahInputController;
 use App\Http\Controllers\KolektabilitasController;
 /*
@@ -52,4 +53,5 @@ Route::get('saldo',[WakalahInputController::class,'saldo'])->name('wakalah.saldo
 Route::post('filterPar',[KolektabilitasController::class,'filterPar'])->name('filterPar.post')->middleware('auth');
 // Route::resource('item',ItemsController::class);
 
-Route::get('print_pdf/{id}',[MurabahahController::class,'print_pdf'])->name('print_pdf');
+Route::get('print_pdf/{id}',[MurabahahController::class,'print_pdf'])->name('print_pdf')->middleware('auth');
+Route::resource('cetakan',CetakanController::class)->middleware('auth');

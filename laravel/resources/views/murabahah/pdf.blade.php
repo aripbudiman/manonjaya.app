@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Cetak MBA</title>
     <style>
         html {
             padding: 20px;
@@ -22,8 +22,7 @@
 
 <body>
     @foreach ($mba as $item)
-    <img src="{{ asset($item->path) }}" class="img-thumbnail" alt="{{ $item->deskripsi }}">
-    <img src="{{ asset($item->path) }}" class="img-thumbnail" alt="{{ $item->deskripsi }}">
+    <img src="{{ asset($item->path) }}" class="img-thumbnail">
     @endforeach
 </body>
 
