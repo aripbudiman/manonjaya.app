@@ -14,6 +14,8 @@ use App\Http\Controllers\BarangKeluarController;
 use App\Http\Controllers\CetakanController;
 use App\Http\Controllers\WakalahInputController;
 use App\Http\Controllers\KolektabilitasController;
+use App\Http\Controllers\ValidasiController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,3 +57,8 @@ Route::post('filterPar',[KolektabilitasController::class,'filterPar'])->name('fi
 
 Route::get('print_pdf/{id}',[MurabahahController::class,'print_pdf'])->name('print_pdf')->middleware('auth');
 Route::resource('cetakan',CetakanController::class)->middleware('auth');
+
+
+Route::get('validasi',[ValidasiController::class,'index'])->name('validasi');
+Route::post('push_excel',[ValidasiController::class,'import_excel'])->name('push_excel');
+Route::get('show/majelis/{majelis}/tgl/{tgl}',[ValidasiController::class,'show'])->name('show');

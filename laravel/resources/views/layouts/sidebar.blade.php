@@ -63,24 +63,24 @@
 
                     </nav>
                 </div>
-                <div class="sb-sidenav-menu-heading">Addons</div>
-                <a class="nav-link" href="{{ route('kol.index') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                    PAR
+                <div class="sb-sidenav-menu-heading">Random</div>
+                <a class="nav-link" href="{{ route('mba.index') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    MBA
+                </a>
+                <a class="nav-link" href="{{ route('validasi') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Validasi Tabungan
                 </a>
                 <a class="nav-link" href="{{ route('petugas.index') }}">
                     <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                     Petugas
                 </a>
-                <a class="nav-link" href="{{ route('mba.index') }}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                    MBA
+                <a class="nav-link" href="{{ route('kol.index') }}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                    PAR
                 </a>
             </div>
-        </div>
-        <div class="sb-sidenav-footer">
-            <div class="small">Logged in as:</div>
-            Start Bootstrap
         </div>
     </nav>
 </div>
