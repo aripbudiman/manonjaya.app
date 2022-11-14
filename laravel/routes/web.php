@@ -62,3 +62,5 @@ Route::resource('cetakan',CetakanController::class)->middleware('auth');
 Route::get('validasi',[ValidasiController::class,'index'])->name('validasi');
 Route::post('push_excel',[ValidasiController::class,'import_excel'])->name('push_excel');
 Route::get('show/majelis/{majelis}/tgl/{tgl}',[ValidasiController::class,'show'])->name('show');
+Route::post('proses_validasi',[ValidasiController::class,'store'])->name('proses_validasi');
+Route::get('reset',[ValidasiController::class,'reset'])->name('reset');

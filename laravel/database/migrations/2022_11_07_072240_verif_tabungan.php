@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ValidasiTabungan extends Migration
+class VerifTabungan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class ValidasiTabungan extends Migration
      */
     public function up()
     {
-        Schema::create('validasi', function (Blueprint $table) {
+        Schema::create('vrf_tabungan', function (Blueprint $table) {
             $table->id();
             $table->string('id_anggota');
             $table->string('nama_anggota');
@@ -21,7 +21,7 @@ class ValidasiTabungan extends Migration
             $table->string('petugas');
             $table->decimal('saldo_sistem',15,0);
             $table->decimal('saldo_buku',15,0)->nullable();
-            $table->date('tgl_posting');
+            $table->date('tgl_posting')->default(date('Y-m-d'));
             $table->date('tgl_validasi')->nullable();
             $table->text('keterangan')->nullable();
         });

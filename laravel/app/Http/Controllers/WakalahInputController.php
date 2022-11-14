@@ -80,7 +80,9 @@ class WakalahInputController extends Controller
      */
     public function edit($id)
     {
-        //
+        $wakalah=wakalah::findOrFail($id);
+        $petugas=Petugas::all();
+        return view('wakalah.inputwakalah.edit',['title'=>'Edit Wakalah'],compact('wakalah','petugas'));
     }
 
     /**
@@ -92,7 +94,14 @@ class WakalahInputController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $wakalah = wakalah::findOrFail($id);
+        $wakalah->petugas =$request->petugas;
+        $wakalah->nama_anggota=$request->nama_anggota;
+        $wakalah->majelis=$request->majelis;
+        $wakalah->nominal=str_replace('.','',$request->nominal);
+        $wakalah->trx_wkl=$request->trx_wkl;
+        $wakalah->save();
+        return redirect()->route('wakalahInput.index');
     }
 
     /**

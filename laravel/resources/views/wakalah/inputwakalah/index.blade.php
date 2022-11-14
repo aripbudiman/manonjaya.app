@@ -98,6 +98,8 @@
                             class="btn border-0 btn-success rounded-0"><i class="fas fa-check-circle"></i></a>
                         <a href="{{ route('wakalah.changeStatus',['id'=>$item->id,'status'=>'Reject']) }}"
                             class="btn border-0 btn-danger rounded-0"><i class="fas fa-times-circle"></i></a>
+                        <a href="{{ route('wakalahInput.edit',$item->id) }}"
+                            class="btn border-0 btn-warning rounded-0"><i class="fas fa-edit"></i></a>
                     </td>
                 </tr>
                 @endforeach

@@ -3,6 +3,7 @@
 <div class="row">
     <div class="col">
         <button class="btn btn-success rounded-0" id="btn-modal-import">Import</button>
+        <a href="{{ route('reset') }}" class="btn btn-danger rounded-0">Reset</a>
     </div>
     <div class="col-12">
         <table class="table">
