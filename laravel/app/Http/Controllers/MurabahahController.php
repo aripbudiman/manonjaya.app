@@ -66,7 +66,7 @@ class MurabahahController extends Controller
         foreach ($data as $image) {
                 $nama = $image->getClientOriginalName();
                 $image->move($tujuan,$namaFoto.substr($nama,-6));
-                $tj = 'public/'."MBA/".$majelis.'/'.$namaFoto.substr($nama,-6);
+                $tj = '/'."MBA/".$majelis.'/'.$namaFoto.substr($nama,-6);
                 Murabahah::create([
                     'deskripsi'=>$nama,
                     'tanggal'=>date('Y-m-d'),

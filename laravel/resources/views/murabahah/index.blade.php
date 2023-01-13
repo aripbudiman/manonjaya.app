@@ -208,7 +208,7 @@
                 if (tag[i].checked) {
                     data.push(tag[i].value)
                     $('#list-foto-modal').append(`
-                    <img src="${tag[i].value}" width="100">
+                    <img src="public${tag[i].value}" width="100">
                     <input type="hidden" class="form-control rounded-0" id="path" name="path[]" value="${tag[i].value}" >
                     `)
                 }
